@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hundpensionatet Tassen</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>🐾 Hundpensionatet Tassen</h1>
+
+        <nav aria-label="Huvudmeny">
+            <a href="#hem">Hem</a>
+            <a href="#tjanster">Tjänster</a>
+            <a href="#oppettider">Öppettider</a>
+            <a href="#boka">Boka</a>
+            <a href="#omdomen">Omdömen</a>
+            <a href="#personal">Personal</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HEM -->
+        <section id="hem" class="aktiv">
+
+            <img
+                class="sektion-bild"
+                src="images/Hem2.jpg"
+                alt="Två hundar som springer tillsammans"
+            >
+
+            <h2>Välkommen till Tassen!</h2>
+
+            <p>
+                Vi är ett tryggt och kärleksfullt
+                hunddagis och pensionat strax utanför stan.
+                Hos oss får din hund lek, omsorg och
+                härliga dagar i vårt stora inhägnade
+                utomhusområde.
+            </p>
+
+            <p>
+                Vi har två erfarna hundskötare
+                och plats för tolv hundar.
+            </p>
+
+            <a href="#boka" class="btn">
+                Gör en bokningsförfrågan
+            </a>
+
+        </section>
+
+
+        <!-- TJÄNSTER -->
+        <section id="tjanster">
+
+            <img
+                class="sektion-bild"
+                src="images/Tjänster1.jpg"
+                alt="En hund i en grön trädgård"
+                loading="lazy"
+            >
+
+            <h2>Våra tjänster</h2>
+
+            <div class="tjanster-grid">
+
+                <article class="tjanst-kort">
+                    <h3>Hunddagis – heldag</h3>
+                    <p>
+                        En trygg och rolig heldag
+                        med lek och omsorg.
+                    </p>
+                    <p class="pris">320 kr</p>
+                </article>
+
+                <article class="tjanst-kort">
+                    <h3>Hunddagis – halvdag</h3>
+                    <p>
+                        Perfekt för hundar som behöver
+                        omsorg några timmar.
+                    </p>
+                    <p class="pris">190 kr</p>
+                </article>
+
+                <article class="tjanst-kort">
+                    <h3>Hundpensionat</h3>
+                    <p>
+                        Trygg övernattning när du
+                        behöver resa bort.
+                    </p>
+                    <p class="pris">450 kr/natt</p>
+                </article>
+
+                <article class="tjanst-kort">
+                    <h3>Klippkort – 10 dagar</h3>
+                    <p>
+                        Ett prisvärt alternativ
+                        för regelbundna besök.
+                    </p>
+                    <p class="pris">2 800 kr</p>
+                </article>
+
+                <article class="tjanst-kort">
+                    <h3>Hämtning och lämning</h3>
+                    <p>
+                        Vi hjälper dig med transport
+                        av din hund.
+                    </p>
+                    <p class="pris">150 kr</p>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ÖPPETTIDER -->
+        <section id="oppettider">
+
+            <img
+                class="sektion-bild"
+                src="images/Öppettider.jpg"
+                alt="En hund utomhus"
+                loading="lazy"
+            >
+
+            <h2>Öppettider</h2>
+
+            <div class="oppettider-info">
+                <p>Måndag – fredag: 07:00–18:00</p>
+                <p>Lördag: 09:00–14:00</p>
+                <p>Söndag: Stängt</p>
+            </div>
+
+            <div class="oppet-status">
+                <h3>Har vi öppet just nu?</h3>
+
+                <p id="datum"></p>
+                <p id="klocka"></p>
+
+                <p id="status" aria-live="polite">
+                    Kontrollerar öppettider...
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- BOKNING -->
+        <section id="boka">
+
+            <img
+                class="sektion-bild"
+                src="images/boka.jpg"
+                alt="En hund som är ute i naturen"
+                loading="lazy"
+            >
+
+            <h2>Bokningsförfrågan</h2>
+
+            <p>
+                Fyll i formuläret för att skapa
+                en bokningsförfrågan.
+            </p>
+
+            <form id="bokningsForm" novalidate>
+
+                <div class="form-grupp">
+
+                    <label for="hundNamn">
+                        Hundens namn
+                    </label>
+
+                    <input
+                        type="text"
+                        id="hundNamn"
+                        name="hundNamn"
+                        placeholder="Skriv hundens namn"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-grupp">
+
+                    <label for="bokningsDatum">
+                        Önskat datum
+                    </label>
+
+                    <input
+                        type="date"
+                        id="bokningsDatum"
+                        name="bokningsDatum"
+                        required
+                    >
+
+                </div>
+
+                <button type="submit" class="btn">
+                    Lägg till förfrågan
+                </button>
+
+                <p id="felmeddelande" role="alert"></p>
+
+            </form>
+
+            <p class="information">
+                Din förfrågan sparas endast i din
+                webbläsare och skickas inte till Tassen.
+                Ring oss för att bekräfta din bokning.
+            </p>
+
+            <h3>Mina bokningsförfrågningar</h3>
+
+            <ul id="bokningsLista"></ul>
+
+            <p id="tomLista">
+                Du har inga bokningsförfrågningar ännu.
+            </p>
+
+        </section>
+
+
+        <!-- OMDÖMEN -->
+        <section id="omdomen">
+
+            <img
+                class="sektion-bild"
+                src="images/Omdömen.jpg"
+                alt="En hund som tittar mot kameran"
+                loading="lazy"
+            >
+
+            <h2>Vad säger våra kunder?</h2>
+
+            <div class="omdome-kort">
+
+                <blockquote id="omdomeText">
+                    Klicka på knappen för att läsa
+                    ett kundomdöme.
+                </blockquote>
+
+                <p id="omdomeNamn"></p>
+
+                <button
+                    id="nyttOmdome"
+                    class="btn"
+                    type="button"
+                >
+                    Visa ett annat omdöme
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- PERSONAL -->
+        <section id="personal">
+
+            <img
+                class="sektion-bild"
+                src="images/Personal.jpg"
+                alt="En glad golden retriever"
+                loading="lazy"
+            >
+
+            <h2>Vår personal</h2>
+
+            <div class="personal-grid">
+
+                <article>
+                    <h3>Max</h3>
+                    <p>Hundskötare</p>
+                </article>
+
+                <article>
+                    <h3>Alexander</h3>
+                    <p>Hundskötare och ägare</p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- KONTAKT -->
+    <footer id="kontakt">
+
+        <img
+            class="sektion-bild"
+            src="images/Kontakt.jpg"
+            alt="En liten hund"
+            loading="lazy"
+        >
+
+        <h2>Kontakta oss</h2>
+
+        <address>
+            <p>Hagvägen 4</p>
+
+            <p>
+                Telefon:
+                <a href="tel:0300123456">
+                    0300-12 34 56
+                </a>
+            </p>
+
+            <p>
+                E-post:
+                <a href="mailto:hej@tassen.se">
+                    hej@tassen.se
+                </a>
+            </p>
+        </address>
+
+        <p>&copy; 2026 Hundpensionatet Tassen</p>
+
+    </footer>
+
+</body>
+</html>
